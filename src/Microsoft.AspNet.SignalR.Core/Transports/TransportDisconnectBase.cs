@@ -206,6 +206,11 @@ namespace Microsoft.AspNet.SignalR.Transports
             get { return _context.Request.Url; }
         }
 
+        public IRequest Request
+        {
+            get { return _context.Request; }
+        }
+
         protected virtual TextWriter CreateResponseWriter()
         {
             return new BufferTextWriter(Context.Response);

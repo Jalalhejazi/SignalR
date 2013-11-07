@@ -77,5 +77,7 @@ namespace Microsoft.AspNet.SignalR.Transports
         /// </summary>
         [SuppressMessage("Microsoft.Naming", "CA1716:IdentifiersShouldNotMatchKeywords", MessageId = "End", Justification = "Ends the connction thus the name is appropriate.")]
         void End();
+
+        IRequest Request { get;  }
     }
 }

@@ -97,6 +97,14 @@ namespace Microsoft.AspNet.SignalR.Transports
                 throw new ArgumentNullException("connection");
             }
 
+            var noTrack = _configurationManager.AllowConnectionTrackingOverride
+                          && String.Equals(connection.Request.QueryString["__track"], "false", StringComparison.OrdinalIgnoreCase);
+
+            if (noTrack)
+            {
+                return null;
+            }
+
             var newMetadata = new ConnectionMetadata(connection);
             bool isNewConnection = true;
             ITrackingConnection oldConnection = null;
